@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import {UserScreen} from './userScreen';
+import { BrowserRouter as Router, Route, Link, useNavigate } from 'react-router-dom';
+
 
 function Login() {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -25,8 +28,8 @@ function Login() {
         if(field_lat.slice(-4) == password) {
             localStorage.setItem(user.id, JSON.stringify(user)); // save in local storage
             localStorage.setItem('current', JSON.stringify(user)); //to save the current user
-            //this.props.history.push("/game")
-            window.open('./UserScreen.js', '_blank');
+            navigate('/userScreen');
+
         } else {
             alert("incorrect password");
         }
