@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route, Link, useNavigate, Routes } from 'react-router-dom';
+
+//import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -10,9 +12,13 @@ import Info from './info';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-      <UserScreen/>
-  </React.StrictMode>
+  <Router>
+    <Routes>
+      <Route exact path="/" element={<Login/>} />
+      <Route path="/userScreen" element={<UserScreen/>} />
+    </Routes>
+  </Router>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

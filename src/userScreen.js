@@ -20,7 +20,7 @@ function UserScreen() {
   }
 
   return (
-    <Router>
+    
       <div>
         <header>
           <h1>Welcome {userDetails.username}!</h1>
@@ -55,7 +55,7 @@ function UserScreen() {
           </Routes>
         </main>
       </div>
-    </Router>
+    
   );
 }
 
