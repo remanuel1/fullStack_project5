@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link, useHistory } from 'react-router-dom';
+import { BrowserRouter, Router, Route, Routes, Link, useLocation} from 'react-router-dom';
 import Login from './login';
 import Info from './info';
 import Todos from './todos';
@@ -11,12 +11,11 @@ import Albums from './albums';
 function UserScreen() {
 
   const userDetails = JSON.parse(localStorage.getItem('current'));
-  //const history = useHistory();
+  const location = useLocation();
 
   const handleLogout = () => {
     localStorage.removeItem(userDetails.id);
     localStorage.removeItem('current');
-    //history.push('/');
   }
 
   return (
@@ -45,15 +44,12 @@ function UserScreen() {
           </nav>
         </header>
 
-        <main>
           <Routes>
-            <Route path="/" exact component={Login} />
-            <Route path="/info" component={Info} />
-            <Route path="/todos" component={Todos} />
-            <Route path="/posts" component={Posts} />
-            <Route path="/albums" component={Albums} />
+            <Route path="/info" element={<Info/>} />
+            <Route path="/todos" element={<Todos/>} />
+            <Route path="/posts" element={<Posts/>} />
+            <Route path="/albums" element={<Albums/>} />
           </Routes>
-        </main>
       </div>
     
   );

@@ -39,7 +39,7 @@ function Todos() {
 
   return (
     <div>
-      <h1>Todos</h1>
+      <h1>{user.name} List Todos</h1>
       <div>
         <label htmlFor="completed">Show completed:</label>
         <input
@@ -56,6 +56,8 @@ function Todos() {
           <option value="title">Title</option>
           <option value="id">ID</option>
           <option value="completed">Completed</option>
+          <option value="a-z">A-Z</option>
+
         </select>
       </div>
       <ul>

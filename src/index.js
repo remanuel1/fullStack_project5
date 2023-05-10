@@ -5,19 +5,26 @@ import { BrowserRouter as Router, Route, Link, useNavigate, Routes } from 'react
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import Main from './main';
 import Login from './login';
 import UserScreen from './userScreen';
-import Todos from './todos';
 import Info from './info';
+import Todos from './todos';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Router>
+  <div>
+  {/*<Router>
     <Routes>
-      <Route exact path="/" element={<Login/>} />
+      <Route path="/" element={<Main/>} />
+      <Route path="/login" element={<Login/>} />
       <Route path="/userScreen" element={<UserScreen/>} />
     </Routes>
-  </Router>
+  </Router>*/}
+  
+    <Todos/>
+  </div>
+  
 
 );
 
