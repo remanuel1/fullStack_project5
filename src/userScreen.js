@@ -4,38 +4,69 @@ import Login from './login';
 import Info from './info';
 import Todos from './todos';
 import Posts from './post';
-import Albums from './albums';
 
+import Albums from './albums';
+import './userScreen.css';
 
 
 function UserScreen() {
 
+
   const userDetails = JSON.parse(localStorage.getItem('current'));
-  const location = useLocation();
+  const [page, setPage] = useState('info'); // initialize the state with the default page to show
+  const [showInfo, setShowInfo] = useState(false); // initialize the state for showing the info to false
 
   const handleLogout = () => {
     localStorage.removeItem(userDetails.id);
     localStorage.removeItem('current');
+    setPage('login');
+
   }
 
+  const renderPage = () => {
+    switch(page) {
+      case 'info':
+        return showInfo && <Info />;
+      case 'todos':
+        return <Todos />;
+      case 'posts':
+        return <Posts />;
+      case 'albums':
+        return <Albums />;
+      case 'login':
+        return <Login />;
+      default:
+        return showInfo && <Info />;
+    }
+    
+  }
+
+  
   return (
     
       <div>
         <header>
-          <h1>Welcome {userDetails.username}!</h1>
-          <nav>
+          <h1 className="title">Welcome {userDetails.username}!</h1>
+          <nav className="toolbar">
             <ul>
               <li>
-                <Link to="/info">Info</Link>
+                {/* <Link to="/info">Info</Link> */}
+                <button onClick={() => {
+                  setPage('info');
+                  setShowInfo(true); 
+                }}>Info</button>
               </li>
               <li>
-                <Link to="/todos">Todos</Link>
+                {/* <Link to="/todos">Todos</Link> */}
+                <button onClick={() => setPage('todos')}>Todos</button>
               </li>
               <li>
-                <Link to="/posts">Posts</Link>
+                {/* <Link to="/posts">Posts</Link> */}
+                <button onClick={() => setPage('posts')}>Posts</button>
               </li>
               <li>
-                <Link to="/albums">Albums</Link>
+                {/* <Link to="/albums">Albums</Link> */}
+                <button onClick={() => setPage('albums')}>Albums</button>
               </li>
               <li>
                 <button onClick={handleLogout}>Logout</button>
@@ -44,15 +75,20 @@ function UserScreen() {
           </nav>
         </header>
 
-          <Routes>
-            <Route path="/info" element={<Info/>} />
-            <Route path="/todos" element={<Todos/>} />
-            <Route path="/posts" element={<Posts/>} />
-            <Route path="/albums" element={<Albums/>} />
-          </Routes>
+        <main>
+          {/* <Routes>
+            <Route path="/" exact component={Login} />
+            <Route path="/info" component={Info} />
+            <Route path="/todos" component={Todos} />
+            <Route path="/posts" component={Posts} />
+            <Route path="/albums" component={Albums} />
+          </Routes> */}
+          {renderPage()}
+        </main>
       </div>
     
   );
 }
+
 
 export default UserScreen;

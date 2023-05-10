@@ -9,26 +9,25 @@ import Main from './main';
 import Login from './login';
 import UserScreen from './userScreen';
 import Info from './info';
-import Todos from './todos';
+import Todos from './todos'
+import Posts from './post';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <div>
-  {/*<Router>
+  <Router>
     <Routes>
-      <Route path="/" element={<Main/>} />
+      <Route exact path="/" element={<Main/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/userScreen" element={<UserScreen/>} />
+      <Route path="/todos" element={<Todos/>} />
+      <Route path="/info" element={<Info/>} />
+      <Route path="/post" element={<Posts/>} />
     </Routes>
-  </Router>*/}
-  
-    <Todos/>
-  </div>
-  
+  </Router>
+
+
+
 
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
