@@ -28,6 +28,12 @@ const Albums = () => {
     );
     const data = await response.json();
     setPhotos(data);
+    const liItem = document.getElementsByTagName("li");
+    for (let i = 0; i < liItem.length; i++) {
+      liItem[i].classList.remove("select");
+    }
+    const select_p = document.getElementById(albumId);
+    select_p.classList.add("select");
   };
 
   const handleLoadMore = async () => {
@@ -46,7 +52,7 @@ const Albums = () => {
             <h1>Albums</h1>
             <ul>
                 {albums.map((album) => (
-                <li key={album.id} onClick={() => handleAlbumClick(album.id)}>
+                <li id={album.id} key={album.id} onClick={() => handleAlbumClick(album.id)}>
                     {album.title}
                 </li>
                 ))}

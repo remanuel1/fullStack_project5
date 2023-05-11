@@ -1,62 +1,62 @@
-.albums {
+.posts {
     display: flex;
   }
   
-  .albums_list {
+  .posts_list {
     flex: 0 0 30%;
     margin-left: 20px;
   }
 
-  .albums_list ul {
+  .posts_list ul {
     list-style-type:decimal;
   }
 
-  .albums_list ul li:hover {
+  .posts_list ul li:hover {
     cursor: pointer;
     font-weight: bold;
   }
 
-  .albums_list ul li {
+  .posts_list ul li {
     padding: 10px;
     font-size: 20px;
   }
 
-  .albums_list ul li.select {
+  .posts_list ul li.select {
     font-weight: bold;
   }
   
-  .albums_list h1 {
+  .posts_list h1 {
     margin: 20px;
   }
   
-  .albums_photos {
+  .posts_comments {
     flex: 1;
-    padding: 0 20px;
+    padding: 0 30px;
   }
-  
-  .albums_photos h1 {
+
+  .posts_comments h2 {
     text-align: center;
     margin-top: 20px;
   }
   
-  .albums_photos_list {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -10px;
+  .posts_comments p {
+    text-align:justify;
+    margin-top: 20px;
+    font-size: 22px;
   }
   
-  .albums_photos_item {
-    flex: 0 0 30%;
+  .posts_comments_item {
+    background: azure;
+    border-radius: 10px;
+    padding: 20px;
     margin: 10px;
   }
   
-  .albums_photos_item img {
-    width: 100%;
-    height: auto;
-    display: block;
+  .posts_comments_item p {
+    font-size: 20px;
   }
 
-  .load_More_button {
+  .posts_comments button {
     height: 40px;
     width: 200px;
     display: block;
