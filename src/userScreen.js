@@ -4,13 +4,12 @@ import Login from './login';
 import Info from './info';
 import Todos from './todos';
 import Posts from './post';
-
+import { FaInfoCircle , FaTasks, FaNewspaper, FaPhotoVideo, FaSignOutAlt } from 'react-icons/fa';
 import Albums from './albums';
 import './userScreen.css';
 
 
 function UserScreen() {
-
 
   const userDetails = JSON.parse(localStorage.getItem('current'));
   const [page, setPage] = useState('info'); // initialize the state with the default page to show
@@ -54,22 +53,25 @@ function UserScreen() {
                 <button onClick={() => {
                   setPage('info');
                   setShowInfo(true); 
-                }}>Info</button>
+                }}>
+                  <FaInfoCircle   />
+                   Info
+                  </button>
               </li>
               <li>
                 {/* <Link to="/todos">Todos</Link> */}
-                <button onClick={() => setPage('todos')}>Todos</button>
+                <button onClick={() => setPage('todos')}><FaTasks /> Todos</button>
               </li>
               <li>
                 {/* <Link to="/posts">Posts</Link> */}
-                <button onClick={() => setPage('posts')}>Posts</button>
+                <button onClick={() => setPage('posts')}><FaNewspaper /> Posts</button>
               </li>
               <li>
                 {/* <Link to="/albums">Albums</Link> */}
-                <button onClick={() => setPage('albums')}>Albums</button>
+                <button onClick={() => setPage('albums')}><FaPhotoVideo /> Albums</button>
               </li>
               <li>
-                <button onClick={handleLogout}>Logout</button>
+                <button onClick={handleLogout}><FaSignOutAlt /> Logout</button>
               </li>
             </ul>
           </nav>

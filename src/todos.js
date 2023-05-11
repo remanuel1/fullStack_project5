@@ -5,7 +5,8 @@ function Todos() {
   const [todos, setTodos] = useState([]);
   const [completed, setCompleted] = useState(false);
   const [sortBy, setSortBy] = useState("title");
-
+  const [sortOrder, setSortOrder] = useState('serial');
+  
   const user = JSON.parse(localStorage.getItem('current'));
 
 
