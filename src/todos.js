@@ -4,11 +4,10 @@ function Todos() {
 
   const [todos, setTodos] = useState([]);
   const [completed, setCompleted] = useState(false);
-  const [sortBy, setSortBy] = useState("title");
+  //const [sortBy, setSortBy] = useState("title");
   const [sortOrder, setSortOrder] = useState('serial');
   
   const user = JSON.parse(localStorage.getItem('current'));
-
 
   useEffect(() => {
     async function getTodos() {
@@ -16,7 +15,6 @@ function Todos() {
         `https://jsonplaceholder.typicode.com/users/${user.id}/todos`
       );
       const todos = await response.json();
-
       setTodos(todos);
     }
     getTodos();
@@ -30,13 +28,51 @@ function Todos() {
     );
   }
 
-  function handleSortChange(e) {
-    setSortBy(e.target.value);
-  }
+  // function handleSortChange(e) {
+  //   setSortBy(e.target.value);
+  // }
 
-  const sortedTodos = [...todos].sort((a, b) =>
-    a[sortBy].localeCompare(b[sortBy])
-  );
+  const handleSortOrderChange = (event) => {
+    setSortOrder(event.target.value);
+  };
+
+
+
+   const sortedTodos = [...todos].sort((a, b) => {
+     if (sortOrder === 'serial') {
+       return a.id - b.id;
+     } else if (sortOrder === 'completed') {
+       return a.completed - b.completed;
+     } else if (sortOrder === 'a-z') {
+       return a.title.localeCompare(b.title);
+     } else if (sortOrder === 'random') {
+       return Math.random() - 0.5;
+     }
+   });
+
+  const updateTodo = async (todo) => {
+    try {
+      const response = await fetch(`https://jsonplaceholder.typicode.com/todos/${todo.id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify({
+          completed: !todo.completed,
+        }),
+      });
+      const data = await response.json();
+      setTodos(todos.map((t) => (t.id === data.id ? data : t)));
+    } catch (error) 
+    {
+      alert("there is problem");
+    }
+  };
+
+
+  // const sortedTodos = [...todos].sort((a, b) =>
+  //   a[sortBy].localeCompare(b[sortBy])
+  // );
 
   return (
     <div>
@@ -52,12 +88,13 @@ function Todos() {
         />
       </div>
       <div>
-        <label htmlFor="sort">Sort by:</label>
-        <select name="sort" id="sort" value={sortBy} onChange={handleSortChange}>
-          <option value="title">Title</option>
-          <option value="id">ID</option>
+        <label htmlFor="sort">Sort by:
+        </label>
+        <select name="sort" id="sort" value={sortOrder} onChange={handleSortOrderChange}>
+          <option value="serial">Serial</option>
           <option value="completed">Completed</option>
           <option value="a-z">A-Z</option>
+          <option value="random">Random</option>
 
         </select>
       </div>
@@ -69,9 +106,10 @@ function Todos() {
               <input
                 type="checkbox"
                 checked={todo.completed}
-                onChange={() => toggleCompleted(todo.id)}
+                // onChange={() => toggleCompleted(todo.id)}
+                onChange={() => updateTodo(todo)}
               />
-              {todo.title}
+              <span className="todos-text">{todo.title}</span>
             </li>
           ))}
       </ul>
