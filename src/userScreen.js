@@ -8,7 +8,7 @@ import Posts from './post';
 import { FaInfoCircle , FaTasks, FaNewspaper, FaPhotoVideo, FaSignOutAlt } from 'react-icons/fa';
 import Albums from './albums';
 import './userScreen.css';
-
+import { Navigate } from 'react-router-dom';
 
 function UserScreen() {
 
@@ -19,8 +19,7 @@ function UserScreen() {
   const handleLogout = () => {
     localStorage.removeItem(userDetails.id);
     localStorage.removeItem('current');
-    setPage('login');
-
+    return <Navigate to="/login"/>;
   }
 
   const renderPage = () => {
@@ -64,7 +63,7 @@ function UserScreen() {
                 <FaPhotoVideo />
                 Albums
             </Link>
-            <Link to="logout">
+            <Link onClick={handleLogout} to="/login">
                 <FaSignOutAlt />
                 Logout
             </Link>
