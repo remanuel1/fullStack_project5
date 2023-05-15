@@ -1,17 +1,18 @@
 import React from 'react';
+import "./info.css";
 
 function Info () {
 
     const userDetails = JSON.parse(localStorage.getItem('current'));
 
     return (
-        <div>
+        <div className='info_details'>
           <h2>About me</h2>
-          <p>name: {userDetails.name}</p>
-          <p>Email: {userDetails.email}</p>
-          <p>Phone: {userDetails.phone}</p>
-          <p>Address: {userDetails.address.street}, {userDetails.address.city}</p>
-          <p>Work at: {userDetails.company.name}</p>
+          <p><strong>name:</strong> {userDetails.name}</p>
+          <p><strong>Email:</strong> {userDetails.email}</p>
+          <p><strong>Phone:</strong> {userDetails.phone}</p>
+          <p><strong>Address:</strong> {userDetails.address.street}, {userDetails.address.city}</p>
+          <p><strong>Work at:</strong> {userDetails.company.name}</p>
         </div>
       );
 }

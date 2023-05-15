@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Router, Route, Routes, Link, useLocation} from 'react-router-dom';
+import { Link, Outlet } from "react-router-dom";
+//import { BrowserRouter, Router, Route, Routes, Link, useLocation} from 'react-router-dom';
 import Login from './login';
 import Info from './info';
 import Todos from './todos';
@@ -47,46 +48,30 @@ function UserScreen() {
         <header>
           <h1 className="title">Welcome {userDetails.username}!</h1>
           <nav className="toolbar">
-            <ul>
-              <li>
-                {/* <Link to="/info">Info</Link> */}
-                <button onClick={() => {
-                  setPage('info');
-                  setShowInfo(true); 
-                }}>
-                  <FaInfoCircle   />
-                   Info
-                  </button>
-              </li>
-              <li>
-                {/* <Link to="/todos">Todos</Link> */}
-                <button onClick={() => setPage('todos')}><FaTasks /> Todos</button>
-              </li>
-              <li>
-                {/* <Link to="/posts">Posts</Link> */}
-                <button onClick={() => setPage('posts')}><FaNewspaper /> Posts</button>
-              </li>
-              <li>
-                {/* <Link to="/albums">Albums</Link> */}
-                <button onClick={() => setPage('albums')}><FaPhotoVideo /> Albums</button>
-              </li>
-              <li>
-                <button onClick={handleLogout}><FaSignOutAlt /> Logout</button>
-              </li>
-            </ul>
+            <Link to="info">
+                <FaInfoCircle   />
+                Info
+            </Link>
+            <Link to="todos">
+                <FaTasks />
+                Todos
+            </Link>
+            <Link to="posts">
+                <FaNewspaper />
+                Posts
+            </Link>
+            <Link to="albums">
+                <FaPhotoVideo />
+                Albums
+            </Link>
+            <Link to="logout">
+                <FaSignOutAlt />
+                Logout
+            </Link>
+            
           </nav>
         </header>
-
-        <main>
-          {/* <Routes>
-            <Route path="/" exact component={Login} />
-            <Route path="/info" component={Info} />
-            <Route path="/todos" component={Todos} />
-            <Route path="/posts" component={Posts} />
-            <Route path="/albums" component={Albums} />
-          </Routes> */}
-          {renderPage()}
-        </main>
+        <Outlet />
       </div>
     
   );

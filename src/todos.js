@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./todos.css";
 
 function Todos() {
 
@@ -75,7 +76,7 @@ function Todos() {
   // );
 
   return (
-    <div>
+    <div className="todos_list">
       <h1>{user.name} List Todos</h1>
       <div>
         <label htmlFor="completed">Show completed:</label>

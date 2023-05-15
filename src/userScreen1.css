@@ -1,0 +1,48 @@
+.title {
+  text-align: center;
+  font-size: 36px;
+  margin-top: 50px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccc;
+  height: 70px; /* increased height to fit icons */
+}
+
+.toolbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toolbar li {
+  margin-right: 20px;
+}
+
+.toolbar li:last-child {
+  margin-right: 0;
+}
+
+.toolbar button {
+  display: flex;
+  flex-direction: column; /* added to stack icon and text vertically */
+  align-items: center;
+  justify-content: center; /* added to center both icon and text */
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.toolbar button:hover {
+  background-color: #fff;
+  color: #333;
+}
