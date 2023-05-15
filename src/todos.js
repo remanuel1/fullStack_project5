@@ -37,6 +37,7 @@ function Todos() {
     setSortOrder(event.target.value);
   };
 
+
    const sortedTodos = [...todos].sort((a, b) => {
      if (sortOrder === 'serial') {
       console.log("serial");

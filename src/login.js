@@ -54,13 +54,11 @@ function Login() {
      
       <div className="login-container">
         <label>
-          Username:
-          <input className="login-input" type="text" value={username} onChange={handleUsernameChange}  />
+          <input className="login-input" placeholder="Username" type="text" value={username} onChange={handleUsernameChange}  />
         </label>
         <label>
-          Password:
             <div className="login-input-container">
-              <input className="login-input" type={showPassword ? 'text' : 'password'} value={password} onChange={handlePasswordChange} />
+              <input className="login-input" placeholder="Password" type={showPassword ? 'text' : 'password'} value={password} onChange={handlePasswordChange} />
               <button className="show-password-button" type="button" onClick={toggleShowPassword}>
               {showPassword ? <i className="fas fa-eye-slash"></i> : <i className="fas fa-eye"></i>}
               </button>
