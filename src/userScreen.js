@@ -44,7 +44,7 @@ function UserScreen() {
     
       <div>
         <header>
-          <h1 className="title">Welcome {userDetails.username}!</h1>
+          <h1 className="title">Welcome {userDetails.username}</h1>
           <nav className="toolbar">
             
             <Link className='toolbar_button' to="info">

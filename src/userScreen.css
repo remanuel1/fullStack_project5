@@ -2,12 +2,13 @@ body{
     background-image: url("./background.jpg");
 }
 header {
-    background-color: #ccc;
+    background-color: #00B7C3;
 }
 .title {
     text-align: center;
     font-size: 50px;
-    padding-top: 30px;
+    padding-top: 20px;
+    margin: 0px;
   }
   
   .toolbar {
@@ -15,7 +16,7 @@ header {
     justify-content: center;
     align-items: center;
     height: 70px; /* increased height to fit icons */
-    padding-bottom: 20px;
+    padding-bottom: 10px;
   }
   
   .toolbar a {

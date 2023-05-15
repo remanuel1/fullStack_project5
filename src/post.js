@@ -62,8 +62,11 @@ function Posts() {
           <h2>{selectedPost.title}</h2>
           <p>{selectedPost.body}</p>
           <button className="show_comments" onClick={handleShowComments}>
-            Show the comments
+            <Link to="comments">
+             Show the comments
+            </Link>
           </button>
+          
           {comments.map((comment) => (
             <div className="posts_comments_item" key={comment.id}>
               <p> <strong> name: </strong>{comment.name} </p>

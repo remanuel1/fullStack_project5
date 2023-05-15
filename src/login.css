@@ -5,8 +5,13 @@
     justify-content: center;
     height: 100vh;
   } 
+
+  label {
+    padding: 10px;
+    align-content: center;
+  }
   
-   .login-input-container {
+  .login-input-container {
     display: flex;
     align-items: center;
     width: 100%;
