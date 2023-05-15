@@ -24,7 +24,7 @@ root.render(
         <Route path="/userScreen/:id/info" element={<Info/>} />
         <Route path="/userScreen/:id/posts" element={<Posts/>}>
           <Route path="/userScreen/:id/posts/:postid" element={<Posts/>}>
-          <Route path="/userScreen/:id/posts/:postid/comments" element={<Posts/>}/>
+            <Route path="/userScreen/:id/posts/:postid/comments" element={<Posts/>}/>
           </Route>
         </Route>
         <Route path="/userScreen/:id/albums" element={<Albums/>}>
