@@ -37,16 +37,18 @@ function Todos() {
     setSortOrder(event.target.value);
   };
 
-
-
    const sortedTodos = [...todos].sort((a, b) => {
      if (sortOrder === 'serial') {
+      console.log("serial");
        return a.id - b.id;
      } else if (sortOrder === 'completed') {
+      console.log("comleted");
        return a.completed - b.completed;
      } else if (sortOrder === 'a-z') {
+      console.log("a-z");
        return a.title.localeCompare(b.title);
      } else if (sortOrder === 'random') {
+      console.log("random");
        return Math.random() - 0.5;
      }
    });

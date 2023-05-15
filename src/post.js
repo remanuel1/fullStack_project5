@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./posts.css";
 
 function Posts() {
@@ -48,9 +49,11 @@ function Posts() {
         <h1>Posts List</h1>
         <ul>
           {posts.map((post) => (
-          <li id={post.id} key={post.id} onClick={() => handlePostClick(post)}>
-              {post.title}
-          </li>
+            <Link to={`${post.id-((user.id-1)*10)}`}>
+              <li id={post.id} key={post.id} onClick={() => handlePostClick(post)}>
+                {post.title}
+              </li>
+            </Link>
           ))}
         </ul>
       </div>
@@ -58,7 +61,9 @@ function Posts() {
         <div className="posts_comments">
           <h2>{selectedPost.title}</h2>
           <p>{selectedPost.body}</p>
-          <button className="show_comments" onClick={handleShowComments}>Show the comments</button>
+          <button className="show_comments" onClick={handleShowComments}>
+            Show the comments
+          </button>
           {comments.map((comment) => (
             <div className="posts_comments_item" key={comment.id}>
               <p> <strong> name: </strong>{comment.name} </p>

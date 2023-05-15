@@ -17,7 +17,7 @@ function UserScreen() {
   const [showInfo, setShowInfo] = useState(false); // initialize the state for showing the info to false
 
   const handleLogout = () => {
-    localStorage.removeItem(userDetails.id);
+    //localStorage.removeItem(userDetails.id);
     localStorage.removeItem('current');
     return <Navigate to="/login"/>;
   }
@@ -40,30 +40,30 @@ function UserScreen() {
     
   }
 
-  
   return (
     
       <div>
         <header>
           <h1 className="title">Welcome {userDetails.username}!</h1>
           <nav className="toolbar">
-            <Link to="info">
+            
+            <Link className='toolbar_button' to="info">
                 <FaInfoCircle   />
                 Info
             </Link>
-            <Link to="todos">
+            <Link className='toolbar_button' to="todos">
                 <FaTasks />
                 Todos
             </Link>
-            <Link to="posts">
+            <Link className='toolbar_button' to="posts">
                 <FaNewspaper />
                 Posts
             </Link>
-            <Link to="albums">
+            <Link className='toolbar_button' to="albums">
                 <FaPhotoVideo />
                 Albums
             </Link>
-            <Link onClick={handleLogout} to="/login">
+            <Link className='toolbar_button right' onClick={handleLogout} to="/login">
                 <FaSignOutAlt />
                 Logout
             </Link>

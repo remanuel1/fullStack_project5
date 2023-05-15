@@ -9,6 +9,13 @@
 
   .posts_list ul {
     list-style-type:decimal;
+
+  }
+
+  .posts_list ul a{
+    text-decoration: none;
+    color: inherit;
+
   }
 
   .posts_list ul li:hover {
@@ -19,6 +26,7 @@
   .posts_list ul li {
     padding: 10px;
     font-size: 20px;
+
   }
 
   .posts_list ul li.select {

@@ -36,9 +36,9 @@ function Login() {
     try {
         let field_lat = user.address.geo.lat;
         if(field_lat.slice(-4) == password) {
-            localStorage.setItem(user.id, JSON.stringify(user)); // save in local storage
+            //localStorage.setItem(user.id, JSON.stringify(user)); // save in local storage
             localStorage.setItem('current', JSON.stringify(user)); //to save the current user
-            navigate('/userScreen');
+            navigate(`/userScreen/${user.id}`);
 
         } else {
             alert("incorrect password");

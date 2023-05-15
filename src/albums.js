@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 import "./albums.css";
 
 const Albums = () => {
@@ -52,9 +54,11 @@ const Albums = () => {
             <h1>Albums</h1>
             <ul>
                 {albums.map((album) => (
-                <li id={album.id} key={album.id} onClick={() => handleAlbumClick(album.id)}>
-                    {album.title}
-                </li>
+                  <Link to={`${album.id-((user.id-1)*10)}/photos`}>
+                    <li id={album.id} key={album.id} onClick={() => handleAlbumClick(album.id)}>
+                      {album.title}
+                    </li>
+                  </Link>
                 ))}
             </ul>
         </div>

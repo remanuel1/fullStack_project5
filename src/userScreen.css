@@ -1,48 +1,47 @@
+body{
+    background-image: url("./background.jpg");
+}
+header {
+    background-color: #ccc;
+}
 .title {
     text-align: center;
-    font-size: 36px;
-    margin-top: 50px;
+    font-size: 50px;
+    padding-top: 30px;
   }
   
   .toolbar {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ccc;
     height: 70px; /* increased height to fit icons */
+    padding-bottom: 20px;
   }
   
-  .toolbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .toolbar li {
-    margin-right: 20px;
-  }
-  
-  .toolbar li:last-child {
-    margin-right: 0;
-  }
-  
-  .toolbar button {
-    display: flex;
+  .toolbar a {
+    /*display: flex;*/
     flex-direction: column; /* added to stack icon and text vertically */
     align-items: center;
-    justify-content: center; /* added to center both icon and text */
-    background-color: #333;
+    /*justify-content: center; /* added to center both icon and text */
+    /*background-color: #333;*/
     color: #fff;
     border: none;
     padding: 10px;
+    margin: 10px;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 22px;
     transition: all 0.3s ease;
     cursor: pointer;
+    text-decoration: none;
+  }
+
+  .toolbar a svg{
+    padding-right: 10px;
+    height: 20px;
+    width: 20px;
   }
   
-  .toolbar button:hover {
+  .toolbar_button:hover {
     background-color: #fff;
     color: #333;
   }
-  

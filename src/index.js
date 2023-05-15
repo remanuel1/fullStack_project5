@@ -19,12 +19,15 @@ root.render(
     <Routes>
       <Route exact path="/" element={<Main/>} />
       <Route path="/login" element={<Login/>} />
-      <Route path="/userScreen" element={<UserScreen/>}>
-        <Route path="/userScreen/todos" element={<Todos/>} />
-        <Route path="/userScreen/info" element={<Info/>} />
-        <Route path="/userScreen/posts" element={<Posts/>} />
-        <Route path="/userScreen/albums" element={<Albums/>} />
-        
+      <Route path="/userScreen/:id" element={<UserScreen/>}>
+        <Route path="/userScreen/:id/todos" element={<Todos/>} />
+        <Route path="/userScreen/:id/info" element={<Info/>} />
+        <Route path="/userScreen/:id/posts" element={<Posts/>}>
+          <Route path="/userScreen/:id/posts/:postid" element={<Posts/>}/>
+        </Route>
+        <Route path="/userScreen/:id/albums" element={<Albums/>}>
+          <Route path="/userScreen/:id/albums/:albumsid/photos" element={<Albums/>}/>
+        </Route>
       </Route>
       
     </Routes>
