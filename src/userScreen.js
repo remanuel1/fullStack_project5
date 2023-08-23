@@ -13,8 +13,8 @@ import { Navigate } from 'react-router-dom';
 function UserScreen() {
 
   const userDetails = JSON.parse(localStorage.getItem('current'));
-  const [page, setPage] = useState('info'); // initialize the state with the default page to show
-  const [showInfo, setShowInfo] = useState(false); // initialize the state for showing the info to false
+  //const [page, setPage] = useState('info'); // initialize the state with the default page to show
+  //const [showInfo, setShowInfo] = useState(false); // initialize the state for showing the info to false
 
   const handleLogout = () => {
     //localStorage.removeItem(userDetails.id);
@@ -22,7 +22,7 @@ function UserScreen() {
     return <Navigate to="/login"/>;
   }
 
-  const renderPage = () => {
+  /*const renderPage = () => {
     switch(page) {
       case 'info':
         return showInfo && <Info />;
@@ -38,7 +38,7 @@ function UserScreen() {
         return showInfo && <Info />;
     }
     
-  }
+  }*/
 
   return (
     

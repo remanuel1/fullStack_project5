@@ -18,7 +18,7 @@ function Posts() {
       setPosts(posts);
     }
     getPosts();
-  }, [user]);
+  }, []);
 
   useEffect(()=> {
     setComments([])

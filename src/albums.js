@@ -21,7 +21,7 @@ const Albums = () => {
       setAlbums(data);
     };
     fetchAlbums();
-  }, [user]);
+  }, []);
 
   const handleAlbumClick = async (albumId) => {
     setSelectedAlbum(albumId);

@@ -19,7 +19,7 @@ function Todos() {
       setTodos(todos);
     }
     getTodos();
-  }, [user]);
+  }, []);
 
   function toggleCompleted(id) {
     setTodos(
